@@ -2,7 +2,7 @@
 
 Real-time defect inspection dashboard for a factory line: **React, TypeScript, React Query, Canvas.**
 
-**[Live demo →](https://YOUR-CLOUDFRONT-URL)**
+**[Live demo →](https://d2ap1twsm9bjpd.cloudfront.net)**
 
 <!-- Replace with a 15–20 s GIF: threshold slider moving, then one station dropping offline and recovering. -->
 
