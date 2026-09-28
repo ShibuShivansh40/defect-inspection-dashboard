@@ -24,7 +24,19 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint && npm run format:check && npm run build
-
+      
+      - name: Show OIDC claims (debug)
+        run: |
+          curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" > token.json
+          python3 - <<'PY'
+          import json, base64
+          t = json.load(open("token.json"))["value"].split(".")[1]
+          t += "=" * (-len(t) % 4)
+          c = json.loads(base64.urlsafe_b64decode(t))
+          print({k: c.get(k) for k in ("sub", "aud", "iss")})
+          PY
+      
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
