@@ -1,0 +1,6 @@
+dist
+node_modules
+public/mockServiceWorker.js
+src/mocks/manifest.json
+scripts/annotations
+public/frames
