@@ -1,0 +1,45 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write # GitHub OIDC -> short-lived AWS credentials, no stored keys
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint && npm run format:check && npm run build
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ap-south-1
+
+      # Hashed assets and frames: cache for a year.
+      - run: >
+          aws s3 sync dist s3://${{ secrets.BUCKET }} --delete
+          --exclude index.html --exclude mockServiceWorker.js
+          --cache-control "public,max-age=31536000,immutable"
+      # Entry file and service worker: always revalidate, or users get stale asset links.
+      - run: aws s3 cp dist/index.html s3://${{ secrets.BUCKET }}/index.html --cache-control "no-cache"
+      - run: >
+          aws s3 cp dist/mockServiceWorker.js s3://${{ secrets.BUCKET }}/mockServiceWorker.js
+          --cache-control "no-cache" --content-type "text/javascript"
+      - run: >
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CF_DIST_ID }}
+          --paths /index.html /mockServiceWorker.js
