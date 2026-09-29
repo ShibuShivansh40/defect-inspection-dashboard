@@ -1,7 +1,11 @@
 import type { ReactNode } from 'react';
 
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <section className={`rounded-xl border border-line bg-panel ${className}`}>{children}</section>;
+  return (
+    <section className={`rounded-xl border border-line bg-panel shadow-card ${className}`}>
+      {children}
+    </section>
+  );
 }
 
 export function StatTile({ label, value, hint }: { label: string; value: ReactNode; hint?: ReactNode }) {
@@ -19,8 +23,8 @@ const TONES: Record<Tone, string> = {
   ok: 'bg-ok/15 text-ok ring-ok/30',
   bad: 'bg-bad/15 text-bad ring-bad/30',
   warn: 'bg-warn/15 text-warn ring-warn/30',
-  off: 'bg-slate-500/15 text-slate-300 ring-slate-500/30',
-  neutral: 'bg-slate-500/10 text-muted ring-line',
+  off: 'bg-muted/15 text-muted ring-muted/30',
+  neutral: 'bg-muted/10 text-muted ring-line',
 };
 
 export function Badge({ tone, children }: { tone: Tone; children: ReactNode }) {
@@ -34,7 +38,7 @@ export function Badge({ tone, children }: { tone: Tone; children: ReactNode }) {
 }
 
 export function Skeleton({ className = '' }: { className?: string }) {
-  return <div aria-hidden className={`animate-pulse rounded-md bg-slate-700/40 ${className}`} />;
+  return <div aria-hidden className={`animate-pulse rounded-md bg-ink/10 ${className}`} />;
 }
 
 export function ErrorState({
@@ -57,7 +61,7 @@ export function ErrorState({
           type="button"
           onClick={onRetry}
           disabled={retrying}
-          className="mt-1 rounded-md border border-line px-3 py-1.5 text-xs font-medium text-ink hover:bg-white/5 disabled:opacity-50"
+          className="mt-1 rounded-md border border-line px-3 py-1.5 text-xs font-medium text-ink hover:bg-ink/5 disabled:opacity-50"
         >
           {retrying ? 'Retrying…' : 'Retry'}
         </button>

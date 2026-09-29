@@ -4,7 +4,7 @@ import { Badge } from './ui';
 const DOT: Record<StationStatus, string> = {
   online: 'bg-ok',
   degraded: 'bg-warn',
-  offline: 'bg-slate-400',
+  offline: 'bg-muted',
 };
 
 export function StatusBadge({

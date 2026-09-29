@@ -40,7 +40,7 @@ export function FrameDialog({ row, onClose }: { row: DefectRow | null; onClose: 
             <button
               type="button"
               onClick={onClose}
-              className="rounded-md px-2 py-1 text-sm text-muted hover:bg-white/5 hover:text-ink"
+              className="rounded-md px-2 py-1 text-sm text-muted hover:bg-ink/5 hover:text-ink"
               aria-label="Close"
             >
               ✕

@@ -72,7 +72,7 @@ export function StatsHeader() {
               </span>
               <span className="tabular-nums text-ink">{s ? num(s.byClass[c]) : '–'}</span>
             </div>
-            <div className="mt-1 h-1 overflow-hidden rounded-full bg-slate-700/50">
+            <div className="mt-1 h-1 overflow-hidden rounded-full bg-ink/10">
               <div
                 className="h-full rounded-full transition-[width] duration-500"
                 style={{ width: s ? `${(s.byClass[c] / maxClass) * 100}%` : 0, background: CLASS_COLORS[c] }}

@@ -1,4 +1,4 @@
-import { ConfigProvider, Table, theme, type TableColumnsType } from 'antd';
+import { ConfigProvider, Table, theme as antdTheme, type TableColumnsType } from 'antd';
 import { useState } from 'react';
 import { FrameDialog } from '../components/FrameDialog';
 import { ErrorState } from '../components/ui';
@@ -60,6 +60,7 @@ const columns: TableColumnsType<DefectRow> = [
 
 export default function DefectLog() {
   const filters = useUi((s) => s.filters);
+  const theme = useUi((s) => s.theme);
   const setFilters = useUi((s) => s.setFilters);
   const resetFilters = useUi((s) => s.resetFilters);
   const [rangeIdx, setRangeIdx] = useState(0);
@@ -90,7 +91,7 @@ export default function DefectLog() {
         <button
           type="button"
           onClick={() => defects.refetch()}
-          className="rounded-md border border-line px-3 py-1.5 text-xs font-medium text-ink hover:bg-white/5"
+          className="rounded-md border border-line px-3 py-1.5 text-xs font-medium text-ink hover:bg-ink/5"
         >
           {defects.isFetching ? 'Refreshing…' : 'Refresh'}
         </button>
@@ -109,7 +110,7 @@ export default function DefectLog() {
                 aria-pressed={on}
                 onClick={() => toggleClass(c)}
                 className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-colors ${
-                  on ? 'border-transparent bg-white/10 text-ink' : 'border-line text-muted hover:text-ink'
+                  on ? 'border-transparent bg-ink/10 text-ink' : 'border-line text-muted hover:text-ink'
                 }`}
               >
                 <span aria-hidden className="size-2 rounded-sm" style={{ background: CLASS_COLORS[c] }} />
@@ -176,8 +177,11 @@ export default function DefectLog() {
       ) : (
         <ConfigProvider
           theme={{
-            algorithm: theme.darkAlgorithm,
-            token: { colorBgContainer: '#111821', colorBorderSecondary: '#1f2a37', colorPrimary: '#38bdf8' },
+            algorithm: theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+            token:
+              theme === 'dark'
+                ? { colorBgContainer: '#0f141b', colorBorderSecondary: '#222c38', colorPrimary: '#2dd4bf' }
+                : { colorBgContainer: '#ffffff', colorBorderSecondary: '#d6dde6', colorPrimary: '#0f766e' },
           }}
         >
           <Table<DefectRow>

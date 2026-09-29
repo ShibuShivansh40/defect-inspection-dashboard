@@ -79,7 +79,7 @@ export function FrameCanvas({ frame, highlightId, showAll = false, className = '
       ref={ref}
       role="img"
       aria-label={`Frame ${frame.id}: ${visible} defect${visible === 1 ? '' : 's'} shown`}
-      className={`block aspect-square w-full bg-slate-800 ${className}`}
+      className={`block aspect-square w-full bg-raised ${className}`}
     />
   );
 }

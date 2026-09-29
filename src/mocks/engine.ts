@@ -1,11 +1,14 @@
 /**
  * Deterministic simulation of a 4-camera inspection line.
  *
- * Everything is derived from (stationId, tick) where tick = whole seconds since epoch,
- * so a reload shows the same frames, confidences and history. No state is stored
- * except incremental caches for the shift aggregates.
+ * Which frame each camera "captures" at a given second is derived from (stationId, tick), where
+ * tick = whole seconds since epoch, so a reload shows the same frames and history. The detections
+ * on each frame are real predictions from a YOLOv8n model (see ml/), replayed from predictions.json.
+ * Only frames the model never trained on are used. No state is stored except incremental caches
+ * for the shift aggregates.
  */
 import manifestJson from './manifest.json';
+import predictionsJson from './predictions.json';
 import {
   DEFECT_CLASSES,
   type DefectClass,
@@ -17,7 +20,17 @@ import {
   type Stats,
 } from '../types';
 
-const manifest = manifestJson as ManifestEntry[];
+const allFrames = manifestJson as ManifestEntry[];
+const predictions = predictionsJson.frames as Record<
+  string,
+  Array<{ cls: DefectClass; confidence: number; x: number; y: number; w: number; h: number }>
+>;
+/** The line only sees held-out frames, so the shown detections are honest out-of-sample results. */
+const manifest = allFrames.filter((e) => e.id in predictions);
+export const MODEL_INFO = predictionsJson.model;
+
+/** Shift totals and the defect log count detections at or above this confidence (the line's operating point). */
+export const OPERATING_CONFIDENCE = 0.5;
 
 export const STATIONS = [
   { id: 'st-1', name: 'Line 1 · Cam A' },
@@ -26,7 +39,6 @@ export const STATIONS = [
   { id: 'st-4', name: 'Line 2 · Cam B' },
 ] as const;
 
-const PASS_RATE = 0.5; // share of frames with no detections
 const OUTAGE_CYCLE_S = 120; // one station drops out every 2 minutes...
 const OUTAGE_LEN_S = 20; // ...for 20 seconds
 const DEGRADED_LEN_S = 15; // then runs slow while it recovers
@@ -86,16 +98,13 @@ export function frameAt(stationId: string, tick: number, baseUrl: string): Frame
   if (stationStatus(stationId, tick) === 'offline') return null;
   const id = frameId(stationId, tick);
   const entry = manifest[Math.floor(hash01(`img:${id}`) * manifest.length)];
-  const pass = hash01(`pass:${id}`) < PASS_RATE;
-  const detections: Detection[] = pass
-    ? []
-    : entry.boxes.map((b, i) => ({
-        id: `${id}_${i}`,
-        cls: b.cls,
-        // Simulated model confidence in [0.55, 0.99), stable for this frame + box.
-        confidence: Math.round((0.55 + 0.44 * hash01(`conf:${id}:${i}`)) * 100) / 100,
-        box: { x: b.x, y: b.y, w: b.w, h: b.h },
-      }));
+  // Real model output for this image, highest confidence first.
+  const detections: Detection[] = predictions[entry.id].map((p, i) => ({
+    id: `${id}_${i}`,
+    cls: p.cls,
+    confidence: p.confidence,
+    box: { x: p.x, y: p.y, w: p.w, h: p.h },
+  }));
   return {
     id,
     stationId,
@@ -151,8 +160,9 @@ function shiftCache(tick: number, baseUrl: string): ShiftCache {
       const f = frameAt(s.id, t, baseUrl);
       if (!f) continue;
       cache.inspected++;
-      if (f.detections.length) cache.defective++;
-      for (const d of f.detections) {
+      const counted = f.detections.filter((d) => d.confidence >= OPERATING_CONFIDENCE);
+      if (counted.length) cache.defective++;
+      for (const d of counted) {
         cache.byClass[d.cls]++;
         cache.rows.push({ ...d, frameId: f.id, stationId: f.stationId, capturedAt: f.capturedAt });
       }

@@ -41,7 +41,7 @@ export const StationCard = memo(function StationCard({ stationId, name, status, 
             <FrameCanvas frame={frame} className={offline ? 'opacity-40 grayscale' : ''} />
           </Link>
         ) : (
-          <div className="flex aspect-square items-center justify-center bg-slate-900">
+          <div className="flex aspect-square items-center justify-center bg-raised">
             <ErrorState
               title="No signal"
               message={error instanceof Error ? error.message : undefined}
@@ -51,9 +51,9 @@ export const StationCard = memo(function StationCard({ stationId, name, status, 
           </div>
         )}
         {offline && frame && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-black/40 text-center">
-            <span className="text-sm font-semibold text-ink">Camera offline</span>
-            <span className="text-xs text-muted">Showing last frame · reconnecting</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-black/50 text-center">
+            <span className="text-sm font-semibold text-white">Camera offline</span>
+            <span className="text-xs text-white/80">Showing last frame · reconnecting</span>
           </div>
         )}
       </div>

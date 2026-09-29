@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Set the theme before first paint so there is no flash. Storage can be blocked, so guard it.
+      (function () {
+        var t = null;
+        try {
+          t = localStorage.getItem('theme');
+        } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Defect Inspection Dashboard</title>
     <meta
       name="description"
       content="Real-time defect inspection dashboard for a factory line: React, TypeScript, React Query, Canvas."
     />
-    <meta name="theme-color" content="#0b0f14" />
+    <meta name="theme-color" content="#090c10" />
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,17 @@
+{
+  "split": "held-out validation images (never seen in training)",
+  "images": 48,
+  "imgsz": 224,
+  "map50": 0.694,
+  "map50_95": 0.428,
+  "precision": 0.6,
+  "recall": 0.731,
+  "per_class_map50": {
+    "crazing": 0.179,
+    "inclusion": 0.862,
+    "patches": 0.85,
+    "pitted_surface": 0.995,
+    "rolled_in_scale": 0.442,
+    "scratches": 0.837
+  }
+}

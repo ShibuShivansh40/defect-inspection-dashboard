@@ -4,3 +4,5 @@ public/mockServiceWorker.js
 src/mocks/manifest.json
 scripts/annotations
 public/frames
+src/mocks/predictions.json
+public/models

@@ -80,7 +80,7 @@ function Detail({ id }: { id: string }) {
               <Skeleton className="aspect-square w-full rounded-none" />
             )}
             {live && station?.status === 'offline' && frame && (
-              <div className="absolute inset-x-0 top-0 bg-black/60 px-3 py-1.5 text-center text-xs text-ink">
+              <div className="absolute inset-x-0 top-0 bg-black/60 px-3 py-1.5 text-center text-xs text-white">
                 Camera offline · showing last frame
               </div>
             )}
@@ -129,7 +129,7 @@ function Detail({ id }: { id: string }) {
                 onClick={() => setLive(true)}
                 aria-pressed={live}
                 className={`shrink-0 rounded-md px-2.5 py-1 text-xs font-semibold ${
-                  live ? 'bg-bad/20 text-bad' : 'border border-line text-ink hover:bg-white/5'
+                  live ? 'bg-bad/20 text-bad' : 'border border-line text-ink hover:bg-ink/5'
                 }`}
               >
                 {live ? '● LIVE' : 'Go live'}

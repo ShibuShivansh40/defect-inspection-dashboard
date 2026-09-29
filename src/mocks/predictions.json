@@ -1,0 +1,202 @@
+{
+  "model": {
+    "name": "YOLOv8n fine-tuned on a NEU-DET subset",
+    "note": "Predictions on held-out frames only (never seen in training).",
+    "minConfidence": 0.25,
+    "metrics": { "map50": 0.694, "map50_95": 0.428, "precision": 0.6, "recall": 0.731, "images": 48 }
+  },
+  "frames": {
+    "crazing_14": [],
+    "crazing_5": [{ "cls": "crazing", "confidence": 0.41, "x": 1, "y": 80, "w": 199, "h": 115 }],
+    "crazing_20": [
+      { "cls": "crazing", "confidence": 0.55, "x": 0, "y": 102, "w": 192, "h": 97 },
+      { "cls": "patches", "confidence": 0.36, "x": 139, "y": 30, "w": 57, "h": 44 }
+    ],
+    "crazing_27": [{ "cls": "crazing", "confidence": 0.25, "x": 0, "y": 138, "w": 200, "h": 61 }],
+    "crazing_23": [{ "cls": "crazing", "confidence": 0.26, "x": 0, "y": 133, "w": 199, "h": 67 }],
+    "crazing_19": [],
+    "crazing_37": [
+      { "cls": "crazing", "confidence": 0.27, "x": 0, "y": 57, "w": 200, "h": 122 },
+      { "cls": "crazing", "confidence": 0.26, "x": 94, "y": 165, "w": 83, "h": 34 }
+    ],
+    "crazing_29": [
+      { "cls": "crazing", "confidence": 0.36, "x": 1, "y": 89, "w": 197, "h": 110 },
+      { "cls": "crazing", "confidence": 0.29, "x": 0, "y": 0, "w": 131, "h": 65 }
+    ],
+    "inclusion_11": [{ "cls": "inclusion", "confidence": 0.81, "x": 30, "y": 34, "w": 52, "h": 166 }],
+    "inclusion_28": [
+      { "cls": "inclusion", "confidence": 0.62, "x": 88, "y": 161, "w": 31, "h": 39 },
+      { "cls": "inclusion", "confidence": 0.6, "x": 147, "y": 153, "w": 17, "h": 45 },
+      { "cls": "inclusion", "confidence": 0.56, "x": 35, "y": 112, "w": 34, "h": 88 },
+      { "cls": "inclusion", "confidence": 0.53, "x": 89, "y": 112, "w": 17, "h": 42 },
+      { "cls": "inclusion", "confidence": 0.52, "x": 148, "y": 70, "w": 20, "h": 79 },
+      { "cls": "inclusion", "confidence": 0.49, "x": 109, "y": 53, "w": 20, "h": 47 },
+      { "cls": "inclusion", "confidence": 0.46, "x": 184, "y": 106, "w": 13, "h": 36 },
+      { "cls": "inclusion", "confidence": 0.45, "x": 153, "y": 32, "w": 13, "h": 26 },
+      { "cls": "inclusion", "confidence": 0.37, "x": 40, "y": 0, "w": 28, "h": 102 },
+      { "cls": "inclusion", "confidence": 0.33, "x": 92, "y": 0, "w": 19, "h": 11 },
+      { "cls": "inclusion", "confidence": 0.27, "x": 91, "y": 13, "w": 20, "h": 63 }
+    ],
+    "inclusion_36": [
+      { "cls": "inclusion", "confidence": 0.79, "x": 38, "y": 0, "w": 75, "h": 200 },
+      { "cls": "inclusion", "confidence": 0.63, "x": 128, "y": 117, "w": 26, "h": 83 },
+      { "cls": "inclusion", "confidence": 0.62, "x": 177, "y": 0, "w": 23, "h": 200 },
+      { "cls": "inclusion", "confidence": 0.45, "x": 124, "y": 23, "w": 32, "h": 79 },
+      { "cls": "inclusion", "confidence": 0.26, "x": 0, "y": 2, "w": 15, "h": 195 }
+    ],
+    "inclusion_38": [
+      { "cls": "inclusion", "confidence": 0.83, "x": 136, "y": 0, "w": 59, "h": 200 },
+      { "cls": "inclusion", "confidence": 0.67, "x": 6, "y": 0, "w": 63, "h": 200 },
+      { "cls": "inclusion", "confidence": 0.5, "x": 184, "y": 4, "w": 16, "h": 196 }
+    ],
+    "inclusion_32": [
+      { "cls": "inclusion", "confidence": 0.83, "x": 35, "y": 0, "w": 38, "h": 200 },
+      { "cls": "inclusion", "confidence": 0.7, "x": 89, "y": 0, "w": 31, "h": 142 },
+      { "cls": "inclusion", "confidence": 0.6, "x": 88, "y": 0, "w": 25, "h": 63 },
+      { "cls": "inclusion", "confidence": 0.57, "x": 144, "y": 1, "w": 27, "h": 59 },
+      { "cls": "inclusion", "confidence": 0.35, "x": 91, "y": 67, "w": 21, "h": 73 }
+    ],
+    "inclusion_1": [
+      { "cls": "inclusion", "confidence": 0.91, "x": 116, "y": 72, "w": 26, "h": 40 },
+      { "cls": "inclusion", "confidence": 0.76, "x": 118, "y": 34, "w": 15, "h": 29 },
+      { "cls": "inclusion", "confidence": 0.74, "x": 34, "y": 7, "w": 13, "h": 29 },
+      { "cls": "inclusion", "confidence": 0.61, "x": 114, "y": 112, "w": 22, "h": 88 }
+    ],
+    "inclusion_37": [
+      { "cls": "inclusion", "confidence": 0.83, "x": 117, "y": 0, "w": 52, "h": 200 },
+      { "cls": "inclusion", "confidence": 0.74, "x": 65, "y": 1, "w": 35, "h": 74 },
+      { "cls": "inclusion", "confidence": 0.7, "x": 8, "y": 0, "w": 50, "h": 200 },
+      { "cls": "inclusion", "confidence": 0.62, "x": 169, "y": 0, "w": 31, "h": 167 },
+      { "cls": "inclusion", "confidence": 0.58, "x": 70, "y": 92, "w": 28, "h": 108 }
+    ],
+    "inclusion_9": [{ "cls": "inclusion", "confidence": 0.9, "x": 0, "y": 65, "w": 119, "h": 31 }],
+    "patches_5": [
+      { "cls": "patches", "confidence": 0.91, "x": 112, "y": 55, "w": 57, "h": 144 },
+      { "cls": "patches", "confidence": 0.86, "x": 31, "y": 0, "w": 65, "h": 157 },
+      { "cls": "patches", "confidence": 0.64, "x": 127, "y": 0, "w": 73, "h": 33 }
+    ],
+    "patches_15": [
+      { "cls": "patches", "confidence": 0.88, "x": 56, "y": 0, "w": 58, "h": 54 },
+      { "cls": "patches", "confidence": 0.85, "x": 67, "y": 54, "w": 43, "h": 146 }
+    ],
+    "patches_24": [
+      { "cls": "patches", "confidence": 0.87, "x": 140, "y": 13, "w": 44, "h": 61 },
+      { "cls": "patches", "confidence": 0.83, "x": 0, "y": 25, "w": 37, "h": 175 },
+      { "cls": "patches", "confidence": 0.78, "x": 154, "y": 96, "w": 46, "h": 45 },
+      { "cls": "patches", "confidence": 0.52, "x": 0, "y": 0, "w": 33, "h": 23 }
+    ],
+    "patches_32": [
+      { "cls": "patches", "confidence": 0.98, "x": 109, "y": 43, "w": 54, "h": 109 },
+      { "cls": "patches", "confidence": 0.85, "x": 54, "y": 87, "w": 53, "h": 64 },
+      { "cls": "crazing", "confidence": 0.29, "x": 30, "y": 173, "w": 108, "h": 27 }
+    ],
+    "patches_21": [
+      { "cls": "patches", "confidence": 0.93, "x": 110, "y": 19, "w": 82, "h": 180 },
+      { "cls": "patches", "confidence": 0.87, "x": 42, "y": 122, "w": 69, "h": 57 },
+      { "cls": "patches", "confidence": 0.84, "x": 28, "y": 0, "w": 53, "h": 118 },
+      { "cls": "patches", "confidence": 0.5, "x": 133, "y": 0, "w": 62, "h": 14 }
+    ],
+    "patches_2": [
+      { "cls": "patches", "confidence": 0.9, "x": 114, "y": 53, "w": 57, "h": 141 },
+      { "cls": "patches", "confidence": 0.84, "x": 33, "y": 1, "w": 63, "h": 149 },
+      { "cls": "patches", "confidence": 0.53, "x": 147, "y": 0, "w": 53, "h": 26 }
+    ],
+    "patches_12": [
+      { "cls": "patches", "confidence": 0.93, "x": 121, "y": 7, "w": 53, "h": 62 },
+      { "cls": "patches", "confidence": 0.9, "x": 85, "y": 78, "w": 85, "h": 63 },
+      { "cls": "patches", "confidence": 0.85, "x": 14, "y": 155, "w": 35, "h": 45 }
+    ],
+    "patches_27": [
+      { "cls": "patches", "confidence": 0.9, "x": 13, "y": 43, "w": 101, "h": 141 },
+      { "cls": "patches", "confidence": 0.83, "x": 137, "y": 76, "w": 59, "h": 42 },
+      { "cls": "patches", "confidence": 0.36, "x": 63, "y": 0, "w": 66, "h": 10 },
+      { "cls": "patches", "confidence": 0.33, "x": 188, "y": 133, "w": 12, "h": 40 }
+    ],
+    "pitted_surface_15": [
+      { "cls": "pitted_surface", "confidence": 0.96, "x": 0, "y": 0, "w": 199, "h": 200 }
+    ],
+    "pitted_surface_41": [
+      { "cls": "pitted_surface", "confidence": 0.96, "x": 0, "y": 1, "w": 71, "h": 197 },
+      { "cls": "pitted_surface", "confidence": 0.93, "x": 70, "y": 1, "w": 130, "h": 199 }
+    ],
+    "pitted_surface_31": [
+      { "cls": "pitted_surface", "confidence": 0.88, "x": 0, "y": 0, "w": 199, "h": 199 }
+    ],
+    "pitted_surface_23": [
+      { "cls": "pitted_surface", "confidence": 0.96, "x": 0, "y": 0, "w": 199, "h": 200 }
+    ],
+    "pitted_surface_32": [
+      { "cls": "pitted_surface", "confidence": 0.94, "x": 0, "y": 0, "w": 200, "h": 200 },
+      { "cls": "pitted_surface", "confidence": 0.51, "x": 0, "y": 115, "w": 199, "h": 85 }
+    ],
+    "pitted_surface_10": [
+      { "cls": "pitted_surface", "confidence": 0.81, "x": 0, "y": 101, "w": 200, "h": 99 }
+    ],
+    "pitted_surface_40": [
+      { "cls": "pitted_surface", "confidence": 0.85, "x": 1, "y": 0, "w": 199, "h": 200 },
+      { "cls": "pitted_surface", "confidence": 0.29, "x": 0, "y": 1, "w": 44, "h": 199 }
+    ],
+    "pitted_surface_38": [
+      { "cls": "pitted_surface", "confidence": 0.96, "x": 0, "y": 0, "w": 199, "h": 200 }
+    ],
+    "rolled-in_scale_28": [
+      { "cls": "rolled_in_scale", "confidence": 0.61, "x": 101, "y": 100, "w": 54, "h": 39 },
+      { "cls": "rolled_in_scale", "confidence": 0.36, "x": 12, "y": 172, "w": 32, "h": 28 }
+    ],
+    "rolled-in_scale_17": [
+      { "cls": "rolled_in_scale", "confidence": 0.43, "x": 42, "y": 16, "w": 42, "h": 59 }
+    ],
+    "rolled-in_scale_30": [
+      { "cls": "rolled_in_scale", "confidence": 0.38, "x": 46, "y": 86, "w": 31, "h": 25 },
+      { "cls": "rolled_in_scale", "confidence": 0.32, "x": 125, "y": 16, "w": 22, "h": 18 }
+    ],
+    "rolled-in_scale_6": [],
+    "rolled-in_scale_32": [
+      { "cls": "rolled_in_scale", "confidence": 0.32, "x": 88, "y": 47, "w": 46, "h": 55 }
+    ],
+    "rolled-in_scale_35": [
+      { "cls": "rolled_in_scale", "confidence": 0.56, "x": 109, "y": 76, "w": 55, "h": 50 },
+      { "cls": "rolled_in_scale", "confidence": 0.5, "x": 120, "y": 168, "w": 71, "h": 32 }
+    ],
+    "rolled-in_scale_20": [
+      { "cls": "rolled_in_scale", "confidence": 0.79, "x": 29, "y": 105, "w": 45, "h": 74 },
+      { "cls": "rolled_in_scale", "confidence": 0.75, "x": 116, "y": 52, "w": 83, "h": 148 },
+      { "cls": "rolled_in_scale", "confidence": 0.25, "x": 0, "y": 0, "w": 49, "h": 23 }
+    ],
+    "rolled-in_scale_31": [
+      { "cls": "rolled_in_scale", "confidence": 0.39, "x": 97, "y": 94, "w": 42, "h": 99 }
+    ],
+    "scratches_18": [
+      { "cls": "scratches", "confidence": 0.57, "x": 45, "y": 22, "w": 16, "h": 92 },
+      { "cls": "inclusion", "confidence": 0.56, "x": 37, "y": 18, "w": 24, "h": 182 },
+      { "cls": "inclusion", "confidence": 0.31, "x": 107, "y": 140, "w": 30, "h": 60 }
+    ],
+    "scratches_31": [
+      { "cls": "scratches", "confidence": 0.47, "x": 123, "y": 0, "w": 19, "h": 86 },
+      { "cls": "scratches", "confidence": 0.45, "x": 122, "y": 116, "w": 15, "h": 84 },
+      { "cls": "scratches", "confidence": 0.44, "x": 6, "y": 104, "w": 19, "h": 96 },
+      { "cls": "scratches", "confidence": 0.39, "x": 0, "y": 1, "w": 9, "h": 34 }
+    ],
+    "scratches_5": [{ "cls": "scratches", "confidence": 0.8, "x": 136, "y": 41, "w": 64, "h": 158 }],
+    "scratches_7": [
+      { "cls": "scratches", "confidence": 0.59, "x": 14, "y": 2, "w": 75, "h": 197 },
+      { "cls": "scratches", "confidence": 0.53, "x": 78, "y": 41, "w": 15, "h": 76 },
+      { "cls": "scratches", "confidence": 0.32, "x": 76, "y": 131, "w": 15, "h": 69 }
+    ],
+    "scratches_39": [{ "cls": "scratches", "confidence": 0.91, "x": 12, "y": 0, "w": 27, "h": 200 }],
+    "scratches_11": [
+      { "cls": "scratches", "confidence": 0.85, "x": 0, "y": 0, "w": 53, "h": 134 },
+      { "cls": "scratches", "confidence": 0.53, "x": 9, "y": 90, "w": 26, "h": 65 },
+      { "cls": "scratches", "confidence": 0.37, "x": 67, "y": 9, "w": 14, "h": 135 }
+    ],
+    "scratches_25": [
+      { "cls": "scratches", "confidence": 0.38, "x": 33, "y": 0, "w": 75, "h": 181 },
+      { "cls": "scratches", "confidence": 0.29, "x": 136, "y": 5, "w": 21, "h": 133 }
+    ],
+    "scratches_33": [
+      { "cls": "scratches", "confidence": 0.68, "x": 107, "y": 32, "w": 20, "h": 119 },
+      { "cls": "inclusion", "confidence": 0.49, "x": 36, "y": 55, "w": 18, "h": 31 },
+      { "cls": "inclusion", "confidence": 0.26, "x": 32, "y": 11, "w": 25, "h": 74 }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "inspection-dashboard-desktop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Electron kiosk wrapper for the Defect Inspection Dashboard (edge-device build)",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "kiosk": "electron . --kiosk"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0"
+  }
+}
